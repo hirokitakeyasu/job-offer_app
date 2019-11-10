@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Environment</title>
+    <title>ジョブズ.com</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,7 +10,9 @@
   </head>
 
   <body>
-    <%= render 'header' %>
+    <header>
+      <%= render partial: 'layouts/header' %>
+    </header>
     <div class="container">
       <%= yield %>
     </div>
