@@ -10,7 +10,11 @@ class OffersController < ApplicationController
   def create
     @offer = Offer.new(offer_params)
     @offer.save
-    redirect_to offers_path
+    redirect_to offers_path, notice: "投稿しました。"
+  end
+  
+  def show
+    @offer = Offer.find(params[:id])
   end
 
   private
