@@ -1,3 +1,13 @@
+<% if flash[:error_messages]  %>
+  <div class="alert alert-danger">
+    <ul>
+      <% flash[:error_messages].each do |msg|  %>
+        <li><%= msg %></li>
+      <% end %>
+    <ul>
+  </div>
+<% end %>
+
 <h1>求人投稿</h1>
 
 <%= form_with model: @offer, local: true do |f| %>
@@ -13,5 +23,5 @@
     <%= f.label :body, '本文' %>
     <%= f.text_area :body, class: 'form-control', rows: 20 %>
   </div>
-  <%= f.submit '投稿する', class: 'btn btn-warning' %>
+  <%= f.submit '投稿する', class: 'btn btn-warning　new-btn' %>
 <% end %>

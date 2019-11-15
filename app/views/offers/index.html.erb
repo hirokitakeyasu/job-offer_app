@@ -13,8 +13,8 @@
             <div class="card-text">
               <p><%= simple_format(offer.body) %></p>
             </div>
-            <a href="#" class="btn btn-warning">応募する！</a>
-            <%= link_to '詳細を見る', offer_path(offer.id), class: "btn btn-primary" %>
+              <a href="#" class="btn btn-warning index-btn">応募する！</a>
+              <%= link_to '詳細を見る', offer_path(offer.id), class: "btn btn-primary index-btn" %>
         </div>
       </div>
     <% end %>
