@@ -1,9 +1,4 @@
-<div class="d-flex align-items-center">
-  <h1>求人投稿</h1>
-  <div class="ml-auto boards__linkBox">
-    <%= link_to '求人一覧', "/offers", class: 'btn btn-outline-dark' %>
-  </div>
-</div>
+<h1>求人投稿</h1>
 
 <%= form_with model: @offer, local: true do |f| %>
   <div class="form-group">
@@ -16,7 +11,7 @@
   </div>
   <div class="form-group">
     <%= f.label :body, '本文' %>
-    <%= f.text_area :body, class: 'form-control', rows: 30 %>
+    <%= f.text_area :body, class: 'form-control', rows: 20 %>
   </div>
   <%= f.submit '投稿する', class: 'btn btn-warning' %>
 <% end %>

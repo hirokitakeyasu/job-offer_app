@@ -4,17 +4,17 @@
     <% @offers.each do |offer| %>
       <div class="card" style="width: 25rem">
         <div class="card-body">
-            <div class="card-title">
+            <div class="offer-title">
               <h3><%= offer.title %></h3>
             </div>
             <div class="employer-name">
               <h5><%= offer.name %></h5>
             </div>
             <div class="card-text">
-              <p><%= offer.body %></p>
+              <p><%= simple_format(offer.body) %></p>
             </div>
             <a href="#" class="btn btn-warning">応募する！</a>
-            <%= link_to '詳しく見る', offers_path(offer.id), class: "btn btn-primary" %>
+            <%= link_to '詳細を見る', offer_path(offer.id), class: "btn btn-primary" %>
         </div>
       </div>
     <% end %>

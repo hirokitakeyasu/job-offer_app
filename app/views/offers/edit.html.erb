@@ -1,2 +1,17 @@
-<h1>Offers#edit</h1>
-<p>Find me in app/views/offers/edit.html.erb</p>
+<h1>編集画面</h1>
+
+<%= form_with model: @offer, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :name, '名前' %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :title, 'タイトル' %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :body, '本文' %>
+    <%= f.text_area :body, class: 'form-control', rows: 20 %>
+  </div>
+  <%= f.submit '保存する', class: 'btn btn-warning' %>
+<% end %>
