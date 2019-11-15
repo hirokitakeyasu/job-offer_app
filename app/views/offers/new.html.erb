@@ -1,3 +1,5 @@
+<h1>求人投稿</h1>
+
 <% if flash[:error_messages]  %>
   <div class="alert alert-danger">
     <ul>
@@ -8,20 +10,18 @@
   </div>
 <% end %>
 
-<h1>求人投稿</h1>
-
 <%= form_with model: @offer, local: true do |f| %>
-  <div class="form-group">
-    <%= f.label :name, '会社名' %>
-    <%= f.text_field :name, class: 'form-control' %>
-  </div>
   <div class="form-group">
     <%= f.label :title, 'タイトル' %>
     <%= f.text_field :title, class: 'form-control' %>
   </div>
   <div class="form-group">
+    <%= f.label :name, '会社名' %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
     <%= f.label :body, '本文' %>
     <%= f.text_area :body, class: 'form-control', rows: 20 %>
   </div>
-  <%= f.submit '投稿する', class: 'btn btn-warning　new-btn' %>
+  <%= f.submit '投稿する', class: 'btn btn-warning new-btn' %>
 <% end %>

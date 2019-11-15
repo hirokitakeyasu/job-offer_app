@@ -15,7 +15,7 @@ class OffersController < ApplicationController
       redirect_to offers_path, notice: "投稿しました。"
     else
       redirect_to new_offer_path, flash:{
-        error_messages: offer.errors.full_messages
+        error_messages: @offer.errors.full_messages
       }
     end
   end
