@@ -1,18 +1,27 @@
 class SessionsController < ApplicationController
   
+  def new
+  end
+  
   def create
-    @user = User.find_by(name: params[:session][:name])
-    if user && user.authenticate(params[:session][:password])
+    @user = User.find_by(email: session_params[:email])
+    if @user && @user.authenticate(session_params[:password])
       session[:user_id] = user.id
-      redirect_to mypage_path
+      redirect_to offers_path, notice: "ログインしました"
     else
-      render 'home/index'
+      redirect_to root_path
     end
   end
 
   def destroy
     session.delete(:user_id)
     redirect_to root_path
+  end
+  
+  private
+  
+  def session_params
+    params.require(:session).permit(:email, :password)
   end
   
 end
