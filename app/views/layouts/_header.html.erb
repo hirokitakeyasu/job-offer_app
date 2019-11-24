@@ -1,17 +1,23 @@
 <nav class="navbar navbar-expand-lg navbar-warning bg-warning">
     <%= link_to 'ジョブズ.com', offers_path, class: "navar-brand" %>
-
+    
     <div class="collapse navbar-collapse nav justify-content-end" id="navbarSupportedContent">
         <ul class="nav nav-pills">
            <% if @current_user %>
             <li class="nav-item">
-                <a class="nav-link" href="#">ホーム</a>
+                <%= link_to '投稿一覧', offers_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">お気に入り</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">ログアウト</a>
+                <a class="nav-link" href="#">My投稿</a>
+            </li>
+            <li class="nav-item">
+                <%= link_to '求人投稿', new_offer_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
             </li>
            <% else %>
             <li class="nav-item">
