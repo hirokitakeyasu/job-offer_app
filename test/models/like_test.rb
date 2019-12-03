@@ -1,19 +1,17 @@
 # == Schema Information
 #
-# Table name: offers
+# Table name: likes
 #
 #  id         :bigint           not null, primary key
-#  body       :text
-#  name       :string
-#  title      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  user_id    :bigint           not null
+#  post_id    :bigint
+#  user_id    :bigint
 #
 
 require 'test_helper'
 
-class OfferTest < ActiveSupport::TestCase
+class LikeTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

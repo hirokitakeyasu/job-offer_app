@@ -1,5 +1,5 @@
 class OffersController < ApplicationController
-  before_action :target_offer, only: %i[show edit update destroy]
+  before_action :target_offer, only: %i[edit update destroy]
   
   def index
     @offers = Offer.all
@@ -11,6 +11,8 @@ class OffersController < ApplicationController
 
   def create
     @offer = Offer.new(offer_params)
+    @offer.user_id = current_user.id
+    
     if @offer.save
       redirect_to offers_path, notice: "投稿しました。"
     else
@@ -21,9 +23,14 @@ class OffersController < ApplicationController
   end
   
   def show
+    @offer = Offer.find(params[:id])
   end
   
   def edit
+  end
+  
+  def my_offers
+    @offers = current_user.offers
   end
   
   def update
@@ -39,11 +46,11 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:name, :title, :body)
+    params.require(:offer).permit(:name, :title, :body, :user_id)
   end
   
   def target_offer
-    @offer = Offer.find(params[:id])
+    @offer = current_user.offers.find(params[:id])
   end
 
 end

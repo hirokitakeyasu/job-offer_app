@@ -1,0 +1,17 @@
+<h1>MY投稿</h1>
+
+<% @offers.each do |offer| %>
+  <div class="card" style="width: 25rem">
+        <div class="card-body">
+            <div class="offer-title">
+              <h3><%= offer.title %></h3>
+            </div>
+            <div class="employer-name">
+              <h5><%= offer.name %></h5>
+            </div>
+            <div class="card-text">
+              <p><%= simple_format(offer.body) %></p>
+            </div>
+        </div>
+      </div>
+<% end %>

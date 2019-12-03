@@ -31,7 +31,7 @@
 <% end %>
 
 <%= form_for(resource, as: resource_name, url: user_session_path) do |f| %>
-  <%= f.hidden_field :email, {value: 'test@gmail.com'} %>
+  <%= f.hidden_field :email, {value: 'tester@gmail.com'} %>
   <%= f.hidden_field :password, {value: 'password'} %>
   <%= f.submit "かんたんログイン", class: "submit-btn actions btn btn-primary jelly" %>
 <% end %>

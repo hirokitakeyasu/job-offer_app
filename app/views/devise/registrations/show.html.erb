@@ -1,0 +1,15 @@
+<% @user.offers.each do |offer| %>
+<div class="card">
+ <div class="card-body">
+  <div class="offer-title">
+   <h1><%= @offer.title %></h1>
+  </div>
+  <div class="offer-name">
+   <h3><%= @offer.name %></h3>
+  </div>
+  <div class="offer-text">
+   <p><%= @offer.body %></p>
+  </div>
+ </div>
+</div>
+<% end%>

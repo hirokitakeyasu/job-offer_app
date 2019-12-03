@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     get "logout", :to => "users/sessions#destroy"
   end
   
+  get 'offers/my_offers', to: 'offers#my_offers'
+  
   resources :offers
   root 'home#index'
 end
