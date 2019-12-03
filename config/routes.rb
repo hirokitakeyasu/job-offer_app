@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  post 'likes/:post_id/create', to: 'likes#create'
+  post 'likes/:post_id/destroy', to: 'likes#destroy'
+  get 'offers/my_offers', to: 'offers#my_offers'
+  
   devise_for :users, :controllers => {
   :registrations => 'users/registrations',
   :sessions => 'users/sessions'   
@@ -10,8 +14,6 @@ Rails.application.routes.draw do
     get "login", :to => "users/sessions#new"
     get "logout", :to => "users/sessions#destroy"
   end
-  
-  get 'offers/my_offers', to: 'offers#my_offers'
   
   resources :offers
   root 'home#index'
