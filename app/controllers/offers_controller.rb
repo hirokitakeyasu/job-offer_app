@@ -2,7 +2,7 @@ class OffersController < ApplicationController
   before_action :target_offer, only: %i[edit update destroy]
   
   def index
-    @offers = Offer.all
+    @offers = Offer.page(params[:page])
   end
 
   def new
@@ -34,13 +34,16 @@ class OffersController < ApplicationController
   end
   
   def update
-    @offer.update
-    redirect_to offer_path(offer.id)
+    @offer.update(offer_params)
+    redirect_to offers_my_offers_path
   end
   
   def destroy
     @offer.delete
-    redirect_to offers_path
+    redirect_to offers_my_offers_path
+  end
+  
+  def apply
   end
 
   private
@@ -50,7 +53,7 @@ class OffersController < ApplicationController
   end
   
   def target_offer
-    @offer = current_user.offers.find(params[:id])
+    @offer = Offer.find(params[:id])
   end
 
 end

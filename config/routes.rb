@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  post 'likes/:post_id/create', to: 'likes#create'
-  post 'likes/:post_id/destroy', to: 'likes#destroy'
+  get 'offers/apply', to: 'offers#apply'
   get 'offers/my_offers', to: 'offers#my_offers'
   
   devise_for :users, :controllers => {

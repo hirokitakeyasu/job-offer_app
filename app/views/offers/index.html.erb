@@ -13,9 +13,15 @@
             <div class="card-text">
               <p><%= simple_format(offer.body) %></p>
             </div>
-              <a href="#" class="btn btn-warning index-btn">応募する！</a>
+              <%= link_to '応募する', offers_apply_path, class: "btn btn-warning index-btn" %>
               <%= link_to '詳細を見る', offer_path(offer.id), class: "btn btn-primary index-btn" %>
         </div>
       </div>
     <% end %>
+</div>
+
+<%= paginate @offers %>
+
+<div class="page_entries_info">
+  <%= page_entries_info @offers %>
 </div>

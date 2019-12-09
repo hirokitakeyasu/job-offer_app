@@ -1,0 +1,17 @@
+ja:
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&rsaquo; 前"
+      next: "次 &raquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "オファーがありません"
+          one: "1件のオファーが表示されています"
+          other: "%{count}件のオファーが表示されています"
+      more_pages:
+        display_entries: "全%{total}件中%{last}件のオファーが表示されています。"
