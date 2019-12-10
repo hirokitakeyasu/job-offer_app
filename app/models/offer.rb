@@ -14,6 +14,14 @@
 class Offer < ApplicationRecord
   belongs_to :user
   
+  scope :with_keywords, -> keywords {
+    if keywords.present?
+      columns = [:title]
+      where(keywords.split(/[[:space:]]/).reject(&:empty?).map {|keyword|
+        columns.map { |a| arel_table[a].matches("%#{keyword}%") }.inject(:or)
+      }.inject(:and))
+    end
+  }
   
   validates :name, presence: true, length: { maximum: 20 }
   validates :title, presence: true, length: { maximum: 30 }

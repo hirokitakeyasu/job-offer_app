@@ -2,7 +2,9 @@ class OffersController < ApplicationController
   before_action :target_offer, only: %i[edit update destroy]
   
   def index
-    @offers = Offer.page(params[:page])
+    @offers = Offer.all
+    @q = Offer.with_keywords(params.dig(:q, :keywords)).ransack(params[:q])
+    @offers = @q.result.page(params[:page])
   end
 
   def new
