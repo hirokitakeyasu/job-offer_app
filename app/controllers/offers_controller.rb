@@ -3,6 +3,7 @@ class OffersController < ApplicationController
   
   def index
     @offers = Offer.all
+    @offers = params[:tag_id].present? ? Tag.find(params[:tag_id]).offers : Offer.all
     @q = Offer.with_keywords(params.dig(:q, :keywords)).ransack(params[:q])
     @offers = @q.result.page(params[:page])
   end
@@ -51,7 +52,7 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:name, :title, :body, :user_id)
+    params.require(:offer).permit(:name, :title, :body, :user_id, tag_ids: [])
   end
   
   def target_offer
