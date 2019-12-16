@@ -43,11 +43,16 @@
     margin: 20px;
 }
 
-.offers__searchForm {
+.offers_searchForm {
   display: inline-block;
 }
 
-.offers__select {
+.offers_select {
   display: inline-block;
   width: auto;
+}
+
+.offer-image{
+    width: 20px;
+    height: 20px;
 }

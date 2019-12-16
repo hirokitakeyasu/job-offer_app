@@ -2,8 +2,6 @@ class OffersController < ApplicationController
   before_action :target_offer, only: %i[edit update destroy]
   
   def index
-    @offers = Offer.all
-    @offers = params[:tag_id].present? ? Tag.find(params[:tag_id]).offers : Offer.all
     @q = Offer.with_keywords(params.dig(:q, :keywords)).ransack(params[:q])
     @offers = @q.result.page(params[:page])
   end
@@ -48,11 +46,16 @@ class OffersController < ApplicationController
   
   def apply
   end
-
+  
+  def confirm_new
+    @offer = current_user.offers.new(offer_params)
+    render :new unless @offer.valid?
+  end
+  
   private
 
   def offer_params
-    params.require(:offer).permit(:name, :title, :body, :user_id, tag_ids: [])
+    params.require(:offer).permit(:name, :title, :body, :user_id, :image, tag_ids: [])
   end
   
   def target_offer

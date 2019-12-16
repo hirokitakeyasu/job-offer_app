@@ -15,6 +15,7 @@ class Offer < ApplicationRecord
   belongs_to :user
   has_many :offer_tag_relations
   has_many :tags, through: :offer_tag_relations
+  has_one_attached :image
   
   scope :with_keywords, -> keywords {
     if keywords.present?

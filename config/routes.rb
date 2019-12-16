@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   
   resources :offers
   root 'home#index'
+  resources :offers do
+    post :confirm, action: :confirm_new, on: :new
+  end
 end

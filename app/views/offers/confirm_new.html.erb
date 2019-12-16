@@ -1,0 +1,35 @@
+<h1>登録内容の確認</h1>
+
+<%= form_with model: @offer, local: true do |f| %>
+    <div class="table table-hover">
+        <tboby>
+            <th>
+                <p>【タイトル】</p>
+                <td><%= @offer.title %></td>
+                <%= f.hidden_field :title %>
+            </th>
+            <th>
+                <p>【名前】</p>
+                <td><%= @offer.name %></td>
+                <%= f.hidden_field :name %>
+            </th>
+            <th>
+                <p>【本文】</p>
+                <td><%= simple_format(@offer.body) %></td>
+                <%= f.hidden_field :body %>
+            </th>
+            <th>
+                <p>【画像】</p>
+                <td><%= @offer.image %></td>
+                <%= f.hidden_field :body %>
+            </th>
+            <th>
+                <% @offer.tags.each do |tag| %>
+                    <span class="badge badge-primary"><%= tag.name %></span>
+                <% end %>
+            </th>
+        </tboby>
+    </div>
+    <%= link_to '戻る', new_offer_path, class: 'btn btn-primary' %>
+    <%= f.submit '投稿', class: 'btn btn-primary' %>
+<% end %>

@@ -7,9 +7,10 @@ ja:
        password: パスワード
        password_confirmation: パスワード（確認）
       offer:
-        name: 会社名
+        name: 名前
         title: タイトル
         body: 本文
+        image: 画像
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

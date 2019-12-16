@@ -6,16 +6,6 @@
     <%= f.text_field :keywords, required: false, value: params.dig(:q, :keywords), class: 'form-control' %>
     <%= f.button '検索する' %>
   </div>
-  <%= form_tag offers_path, method: :get, class: 'offers__searchForm' do %>
-      <%= select_tag :tag_id,
-                     options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
-                     {
-                       prompt: 'タグで絞り込み',
-                       class: 'form-control offers__select',
-                       onchange: 'submit(this.form);'
-                     }
-      %>
-  <% end %>
 <% end %>
 
 <div class="f-container">
@@ -30,6 +20,9 @@
             </div>
             <div class="employer-name">
               <h5><%= offer.name %></h5>
+            </div>
+            <div class="offer-image">
+              <%= offer.image %>
             </div>
             <div class="card-text">
               <p><%= simple_format(offer.body) %></p>
