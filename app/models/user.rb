@@ -39,8 +39,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_many :offers
+  has_many :favorites, dependent: :destroy
+  has_many :fav_offers, through: :favorites, source: :offer
          
   def offers
     return Offer.where(user_id: self.id)
   end
+
 end

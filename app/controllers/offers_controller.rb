@@ -1,9 +1,12 @@
 class OffersController < ApplicationController
-  before_action :target_offer, only: %i[edit update destroy]
+  before_action :target_offer, only: %i[show edit update destroy]
   
   def index
     @q = Offer.with_keywords(params.dig(:q, :keywords)).ransack(params[:q])
     @offers = @q.result.page(params[:page])
+    
+    @offers = params[:tag_id].present? ? Tag.find(params[:tag_id]).offers : Offer.all
+    @offers = @offers.page(params[:page])
   end
 
   def new
@@ -11,7 +14,7 @@ class OffersController < ApplicationController
   end
 
   def create
-    @offer = Offer.new(offer_params)
+    @offer = current_user.offers.new(offer_params)
     @offer.user_id = current_user.id
     
     if @offer.save
@@ -24,7 +27,6 @@ class OffersController < ApplicationController
   end
   
   def show
-    @offer = Offer.find(params[:id])
   end
   
   def edit
@@ -34,22 +36,18 @@ class OffersController < ApplicationController
     @offers = current_user.offers
   end
   
+  def favorites_offers
+    @offers = current_user.offers
+  end
+  
   def update
     @offer.update(offer_params)
     redirect_to offers_my_offers_path
   end
   
   def destroy
-    @offer.delete
+    @offer.destroy
     redirect_to offers_my_offers_path
-  end
-  
-  def apply
-  end
-  
-  def confirm_new
-    @offer = current_user.offers.new(offer_params)
-    render :new unless @offer.valid?
   end
   
   private

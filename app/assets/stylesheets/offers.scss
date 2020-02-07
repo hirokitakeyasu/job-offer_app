@@ -1,11 +1,50 @@
+/* index.html */
+
+.offersindexTitle{
+  font-weight: bold;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.offers-contents{
+  display: flex;
+}
+
+.sidebar{
+  width: 20%;
+  margin: 10px;
+  background-color: #FFFACD;
+  border-radius: 8px;
+}
+
 .f-container{
     display: flex;
     flex-wrap:wrap;
     overflow: hidden;
-    width: 100%;
+    width: 80%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+.tags_searchForm {
+  display: inline-block;
+}
+
+.tag_select {
+  display: inline-block;
+  width: auto;
+}
+
+.search_form{
+  padding: 30px;
+  font-weight: bold;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+
 .card{
+    box-shadow: 3px 3px 3px 3px #DDDDDD;
+    border: 1px solid;
     border-radius: 10px;
     margin: 20px;
 }
@@ -26,15 +65,19 @@
 }
 
 .offer-title{
+    font-family: 'メイリオ';
+    font-weight: bold;
+    text-decoration: underline;
     margin-left: 10px;
+    padding: 5px;
+    color: #0066FF;
 }
 
 .employer-name{
-    margin-left: 20px;
-}
-
-.new-btn{
-    margin: 20px;
+    font-family: 'メイリオ';
+    margin-top: 5px;
+    margin-left: 10px;
+    padding-top: 5px;
 }
 
 .page_entries_info{
@@ -43,16 +86,57 @@
     margin: 20px;
 }
 
-.offers_searchForm {
-  display: inline-block;
+
+
+/* new.html */
+
+.new-offers-Title{
+  font-weight: bold;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  padding: 10px;
+  margin-left: 20px;
+  margin-bottom: 30px;
 }
 
-.offers_select {
-  display: inline-block;
-  width: auto;
+.offers-form{
+  width: 80%;
+  padding : 20px;
+  border: 2px solid;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-.offer-image{
-    width: 20px;
-    height: 20px;
+.offers-entry{
+  padding: 20px;
+  
+  .form-group{
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 10px;
+    padding: 10px;
+    text-align: left;
+  }
+}
+
+.form-title{
+  margin-top: 20px;
+}
+
+.new-btn{
+  width: 25%;
+  font-weight: bold;
+}
+
+
+
+/* my_offers.html */
+
+.my_offers-Title{
+  font-weight: bold;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  margin-left: 25px;
+  margin-bottom: 20px;
 }

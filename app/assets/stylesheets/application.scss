@@ -13,7 +13,28 @@
  */
 @import "bootstrap";
 @import "offers";
+@import "favorites";
+@import "home";
+@import "sessions";
+@import "users";
+@import "registrations";
+
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
+
+html{
+  font-size: 97%;
+  font-family: '游ゴシック', YuGothic, 'メイリオ', Verdana, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+}
 
 h1{
   margin: 30px;
+}
+
+a{
+  color: #FFF;
+}
+
+/* header */
+.nav-link{
+  font-family: 'M PLUS Rounded 1c', sans-serif;
 }

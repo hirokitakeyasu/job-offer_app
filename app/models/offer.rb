@@ -13,9 +13,18 @@
 
 class Offer < ApplicationRecord
   belongs_to :user
-  has_many :offer_tag_relations
+  has_many :offer_tag_relations, dependent: :delete_all
   has_many :tags, through: :offer_tag_relations
   has_one_attached :image
+  
+  has_many :favorites, dependent: :delete_all
+  has_many :users, through: :favorites
+  
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
+  
+  default_scope -> { order(created_at: :desc) }
   
   scope :with_keywords, -> keywords {
     if keywords.present?
@@ -27,7 +36,7 @@ class Offer < ApplicationRecord
   }
   
   validates :name, presence: true, length: { maximum: 20 }
-  validates :title, presence: true, length: { maximum: 30 }
+  validates :title, presence: true, length: { maximum: 15 }
   validates :body, presence: true, length: { maximum: 1000 }
   validates :user_id, presence: true
 end
