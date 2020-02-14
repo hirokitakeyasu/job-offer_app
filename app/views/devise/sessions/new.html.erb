@@ -1,44 +1,41 @@
-<% if notice %>
-　　<p><%= notice %></p>
-<% end %>
-<% if alert %>
-   <p><%= alert %></p>
-<% end %>
-
-<div class="loginForm">
-  <h5 class="loginTitle">ログイン</h5>
-  
-  <p>メールアドレスとパスワードを入力してください</p>
-
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field form-group">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "text" %>
+<div class="background">
+  <div class="container">
+    <div class="loginForm">
+      <h5 class="loginTitle">ログイン</h5>
+      
+      <p>メールアドレスとパスワードを入力してください</p>
+    
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field form-group">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "text" %>
+        </div>
+      
+        <div class="field form-group">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "current-password", class: "text" %>
+        </div>
+      
+        <% if devise_mapping.rememberable? %>
+          <div class="field form-group">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
+      
+        <div class="actions form-group">
+          <%= f.submit "ログイン" %>
+        </div>
+      <% end %>
+    
+      <%= form_for(resource, as: resource_name, url: user_session_path) do |f| %>
+       <div class="form-group">
+        <%= f.hidden_field :email, {value: 'test@gmail.com'} %>
+        <%= f.hidden_field :password, {value: 'password'} %>
+        <%= f.submit "かんたんログイン", class: "submit-btn actions btn btn-primary jelly" %>
+       </div>
+      <% end %>
+      
     </div>
-  
-    <div class="field form-group">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password", class: "text" %>
-    </div>
-  
-    <% if devise_mapping.rememberable? %>
-      <div class="field form-group">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
-      </div>
-    <% end %>
-  
-    <div class="actions form-group">
-      <%= f.submit "ログイン" %>
-    </div>
-  <% end %>
-
-  <%= form_for(resource, as: resource_name, url: user_session_path) do |f| %>
-   <div class="form-group">
-    <%= f.hidden_field :email, {value: 'test@gmail.com'} %>
-    <%= f.hidden_field :password, {value: 'password'} %>
-    <%= f.submit "かんたんログイン", class: "submit-btn actions btn btn-primary jelly" %>
-   </div>
-  <% end %>
-  
+  </div>
 </div>

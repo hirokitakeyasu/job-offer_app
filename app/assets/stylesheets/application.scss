@@ -22,8 +22,17 @@
 @import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
 
 html{
+  height: 100%;
   font-size: 97%;
   font-family: '游ゴシック', YuGothic, 'メイリオ', Verdana, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+}
+
+body{
+  height: 100%;
+}
+
+main{
+  height: 100%;
 }
 
 h1{
@@ -37,4 +46,18 @@ a{
 /* header */
 .nav-link{
   font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.navar-brand{
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 1.7rem;
+}
+
+/* footer */
+.footer {
+  height: 5%;
+  color: #FFF;
+  background-color: #444;
+  padding: 5px;
+  text-align: center;
 }

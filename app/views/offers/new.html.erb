@@ -1,13 +1,15 @@
-<h3 class="new-offers-Title">求人投稿</h3>
-
-<% if flash[:error_messages]  %>
-  <div class="alert alert-danger">
-    <ul>
-      <% flash[:error_messages].each do |msg|  %>
-        <li><%= msg %></li>
-      <% end %>
-    <ul>
-  </div>
-<% end %>
-
-<%= render partial: 'form', locals: { offer: @offer } %>
+<div class="container">
+  <h3 class="new-offers-Title">求人投稿</h3>
+  
+  <% if flash[:error_messages]  %>
+    <div class="alert alert-danger">
+      <ul>
+        <% flash[:error_messages].each do |msg|  %>
+          <li><%= msg %></li>
+        <% end %>
+      <ul>
+    </div>
+  <% end %>
+  
+  <%= render partial: 'form', locals: { offer: @offer } %>
+</div>

@@ -1,27 +1,29 @@
-<h4 class="my_offers-Title">MY投稿</h4>
-
-<div class="f-container">
-    <% @offers.each do |offer| %>
-      <div class="card" style="width: 25rem">
-            <div class="card-body">
-                <div class="offer-title">
-                  <h3><%= offer.title %></h3>
-                </div>
-                <% offer.tags.each do |tag| %>
-                    <span class="badge badge-success"><%= tag.name %></span>
-                <% end %>
-                <div class="employer-name">
-                  <h5><%= offer.name %></h5>
-                </div>
-                <% if offer.image.attached? %>
-                  <%= image_tag(offer.image, width:50, height:50) %>
-                <% end %>
-                <div class="card-text">
-                  <p><%= simple_format(offer.body) %></p>
-                </div>
-                  <%= link_to '編集', edit_offer_path(offer.id), class: "btn btn-success" %>
-                  <%= link_to '削除', offer_path(offer.id), method: :delete, class: "btn btn-success" %>
-            </div>
-      </div>
-    <% end %>
+<div class="container">
+  <h4 class="my_offers-Title">MY投稿</h4>
+  
+  <div class="f-container">
+      <% @offers.each do |offer| %>
+        <div class="card" style="width: 25rem">
+              <div class="card-body">
+                  <div class="offer-title">
+                    <h3><%= offer.title %></h3>
+                  </div>
+                  <% offer.tags.each do |tag| %>
+                      <span class="badge badge-success"><%= tag.name %></span>
+                  <% end %>
+                  <div class="employer-name">
+                    <h5><%= offer.name %></h5>
+                  </div>
+                  <% if offer.image.attached? %>
+                    <%= image_tag(offer.image, width:50, height:50) %>
+                  <% end %>
+                  <div class="card-text">
+                    <p><%= simple_format(offer.body) %></p>
+                  </div>
+                    <%= link_to '編集', edit_offer_path(offer.id), class: "btn btn-success" %>
+                    <%= link_to '削除', offer_path(offer.id), method: :delete, class: "btn btn-success" %>
+              </div>
+        </div>
+      <% end %>
+  </div>
 </div>

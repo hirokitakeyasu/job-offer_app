@@ -7,16 +7,16 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
   </head>
 
   <body>
     <header>
       <%= render partial: 'layouts/header' %>
     </header>
-    <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <main>
       <%= yield %>
-    </div>
+    </main>
+    <footer class="footer fixed-bottom">copyright（C）ジョブズ.com all rights reserved.</p></footer>
   </body>
 </html>

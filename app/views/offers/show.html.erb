@@ -1,14 +1,14 @@
-<div class="card">
- <div class="card-body">
-  <div class="offer-title">
-   <h1><%= @offer.title %></h1>
+<div class="container">
+  <h4 class="offers-show-Title">詳細ページ</h4>
+  
+  <div class="offers-show">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <tr><td class="table-active">タイトル</td><td><%= @offer.title %></td></tr>
+        <tr><td class="table-active">ユーザー名</td><td><%= @offer.name %></td></tr>
+      </table>
+    </div>
+      <p style="margin: 20px">【詳細】</p>
+      <p class="show-body"><%= @offer.body %></p>
   </div>
-  <div class="offer-name">
-   <h3><%= @offer.name %></h3>
-  </div>
-  <div class="offer-text">
-   <p><%= @offer.body %></p>
-  </div>
-  <a href="#" class="btn btn-warning">応募する！</a>
- </div>
 </div>

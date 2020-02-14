@@ -1,0 +1,13 @@
+.favorite_offers-Title{
+  font-weight: bold;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  margin-top: 20px;
+  margin-left: 25px;
+  margin-bottom: 20px;
+}
+
+.favorite-offers{
+    display: flex;
+    flex-wrap:wrap;
+    overflow: hidden;
+}

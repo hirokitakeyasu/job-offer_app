@@ -1,8 +1,13 @@
 /* index.html */
 
+.container{
+  padding: 30px 10px;
+}
+
 .offersindexTitle{
   font-weight: bold;
   font-family: 'M PLUS Rounded 1c', sans-serif;
+  margin-top: 20px;
 }
 
 .offers-contents{
@@ -68,6 +73,7 @@
     font-family: 'メイリオ';
     font-weight: bold;
     text-decoration: underline;
+    margin-top: 20px;
     margin-left: 10px;
     padding: 5px;
     color: #0066FF;
@@ -84,6 +90,7 @@
     font-weight: bold;
     text-align: center;
     margin: 20px;
+    padding-bottom: 20px;
 }
 
 
@@ -94,6 +101,7 @@
   font-weight: bold;
   font-family: 'M PLUS Rounded 1c', sans-serif;
   padding: 10px;
+  margin-top: 20px;
   margin-left: 20px;
   margin-bottom: 30px;
 }
@@ -113,7 +121,6 @@
   padding: 20px;
   
   .form-group{
-    font-size: 1.1rem;
     font-weight: bold;
     margin: 10px;
     padding: 10px;
@@ -137,6 +144,39 @@
 .my_offers-Title{
   font-weight: bold;
   font-family: 'M PLUS Rounded 1c', sans-serif;
+  margin-top: 20px;
+  margin-left: 25px;
+  margin-bottom: 20px;
+}
+
+/* show.html */
+.offers-show-Title{
+  font-weight: bold;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  margin-top: 20px;
+  margin-left: 25px;
+  margin-bottom: 30px;
+}
+
+.offers-show{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.show-body{
+  border: 0.8px solid;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+
+/* edit.html */
+
+.edit-Title{
+  font-weight: bold;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  margin-top: 20px;
   margin-left: 25px;
   margin-bottom: 20px;
 }
