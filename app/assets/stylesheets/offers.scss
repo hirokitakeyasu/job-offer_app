@@ -83,7 +83,13 @@
     font-family: 'メイリオ';
     margin-top: 5px;
     margin-left: 10px;
+    margin-right: 20px;
     padding-top: 5px;
+}
+
+.name-image{
+  display: flex;
+  justify-content: space-between;
 }
 
 .page_entries_info{

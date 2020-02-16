@@ -10,7 +10,7 @@ class OffersController < ApplicationController
   end
 
   def new
-    @offer = Offer.new
+    @offer = Offer.new(flash[:offer])
   end
 
   def create
@@ -18,7 +18,8 @@ class OffersController < ApplicationController
     @offer.user_id = current_user.id
     
     if @offer.save
-      redirect_to offers_path, notice: "投稿しました。"
+      flash[:success] = "投稿しました。"
+      redirect_to offers_path
     else
       redirect_to new_offer_path, flash:{
         error_messages: @offer.errors.full_messages

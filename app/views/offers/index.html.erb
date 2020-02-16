@@ -1,3 +1,13 @@
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+
+<% if flash[:success] %>
+  <div class="alert alert-success">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+
 <div class="container">
   <h4 class="offersindexTitle">求人一覧</h4>
   
@@ -35,12 +45,14 @@
                   <% offer.tags.each do |tag| %>
                     <span class="badge badge-success"><%= tag.name %></span>
                   <% end %>
-                <div class="employer-name">
-                  <h5><%= offer.name %></h5>
+                <div class="name-image">
+                  <div class="employer-name">
+                    <h5><%= offer.name %></h5>
+                  </div>
+                  <% if offer.image.attached? %>
+                    <%= image_tag(offer.image, width:100, height:100) %>
+                  <% end %>
                 </div>
-                <% if offer.image.attached? %>
-                  <%= image_tag(offer.image, width:50, height:50) %>
-                <% end %>
                 <div class="card-text">
                   <p><%= simple_format(offer.body) %></p>
                 </div>
