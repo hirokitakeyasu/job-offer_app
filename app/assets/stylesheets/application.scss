@@ -83,3 +83,21 @@ img {
   margin: 0px 10px;
   padding: 10px;
 }
+
+/*スマホ用のcss */
+@media screen and (max-width:639px) {
+  max-width: 639px;
+}
+
+
+/*tablet用のcssを記述*/
+@media only screen and (min-width:640px) and (max-width:1023px) {
+  
+  html{
+    max-width: 768px;
+  }
+  
+  img{
+    height: 90px;
+  }
+}

@@ -10,9 +10,8 @@
 
 <div class="container">
   <h4 class="offersindexTitle">求人一覧</h4>
-  
-  <div class="offers-contents">
-    <div class="sidebar">
+
+    <div class="search">
       <div class="search_form">
           <%= search_form_for @q do |f| %>
             <div class="form-group">
@@ -56,19 +55,20 @@
                 <div class="card-text">
                   <p><%= simple_format(offer.body) %></p>
                 </div>
+                 <div class="index-btn">
                   <%= link_to '詳細を見る', offer_path(offer.id), class: "btn btn-success index-btn" %>
                   <% if user_signed_in? %>
                     <% if offer.favorited_by?(current_user) %>
-                        <%=link_to 'お気に入り解除', offer_favorites_path(offer.id), method: :delete, class: "btn btn-success index-btn" %>
+                        <%=link_to 'お気に入り解除', offer_favorites_path(offer.id), method: :delete, class: "btn btn-success" %>
                     <% else %>
-                        <%=link_to 'お気に入り登録', offer_favorites_path(offer.id), method: :post, class: "btn btn-success index-btn"  %>
+                        <%=link_to 'お気に入り登録', offer_favorites_path(offer.id), method: :post, class: "btn btn-success" %>
                     <% end %>
                   <% end %>
+                 </div>
             </div>
           </div>
         <% end %>
     </div>
-  </div>
     
   <%= paginate @offers %>
     
