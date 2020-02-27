@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: offers
@@ -16,25 +18,25 @@ class Offer < ApplicationRecord
   has_many :offer_tag_relations, dependent: :delete_all
   has_many :tags, through: :offer_tag_relations
   has_one_attached :image
-  
+
   has_many :favorites, dependent: :delete_all
   has_many :users, through: :favorites
-  
+
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
-  
+
   default_scope -> { order(created_at: :desc) }
-  
-  scope :with_keywords, -> keywords {
+
+  scope :with_keywords, lambda { |keywords|
     if keywords.present?
       columns = [:title]
-      where(keywords.split(/[[:space:]]/).reject(&:empty?).map {|keyword|
+      where(keywords.split(/[[:space:]]/).reject(&:empty?).map do |keyword|
         columns.map { |a| arel_table[a].matches("%#{keyword}%") }.inject(:or)
-      }.inject(:and))
+      end.inject(:and))
     end
   }
-  
+
   validates :name, presence: true, length: { maximum: 20 }
   validates :title, presence: true, length: { maximum: 30 }
   validates :body, presence: true, length: { maximum: 1000 }

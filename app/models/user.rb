@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -37,13 +39,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         
+
   has_many :offers
   has_many :favorites, dependent: :destroy
   has_many :fav_offers, through: :favorites, source: :offer
-         
-  def offers
-    return Offer.where(user_id: self.id)
-  end
 
+  def offers
+    Offer.where(user_id: id)
+  end
 end

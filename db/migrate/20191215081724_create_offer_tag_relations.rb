@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateOfferTagRelations < ActiveRecord::Migration[5.2]
   def change
     create_table :offer_tag_relations do |t|

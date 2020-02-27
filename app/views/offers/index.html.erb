@@ -36,7 +36,7 @@
   
     <div class="f-container">
         <% @offers.each do |offer| %>
-          <div class="card" style="width: 25rem">
+          <div class="card" style="width: 30rem">
             <div class="card-body">
                 <div class="offer-title">
                   <h5><%= offer.title %></h5>
@@ -70,7 +70,7 @@
         <% end %>
     </div>
     
-  <%= paginate @offers %>
+  <div class="pagination justify-content-center"><%= paginate @offers %></div>
     
   <div class="page_entries_info">
     <%= page_entries_info @offers %>

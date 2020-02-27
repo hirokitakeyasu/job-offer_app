@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -8,10 +10,10 @@
 
 if Rails.env == 'development'
   Tag.create([
-      { name: 'エンジニア' },
-      { name: '営業' },
-      { name: '事務' },
-      { name: '未経験者歓迎' },
-      { name: '経験者募集' }
-    ])
+               { name: 'エンジニア' },
+               { name: '営業' },
+               { name: '事務' },
+               { name: '未経験者歓迎' },
+               { name: '経験者募集' }
+             ])
 end
