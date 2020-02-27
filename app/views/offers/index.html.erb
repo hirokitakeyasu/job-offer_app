@@ -39,7 +39,7 @@
           <div class="card" style="width: 25rem">
             <div class="card-body">
                 <div class="offer-title">
-                  <h4><%= offer.title %></h4>
+                  <h5><%= offer.title %></h5>
                 </div>
                   <% offer.tags.each do |tag| %>
                     <span class="badge badge-success"><%= tag.name %></span>
@@ -53,7 +53,7 @@
                   <% end %>
                 </div>
                 <div class="card-text">
-                  <p><%= simple_format(offer.body) %></p>
+                  <p><%= offer.body %></p>
                 </div>
                  <div class="index-btn">
                   <%= link_to '詳細を見る', offer_path(offer.id), class: "btn btn-success index-btn" %>

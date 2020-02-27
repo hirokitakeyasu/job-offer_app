@@ -12,7 +12,9 @@ class FavoritesController < ApplicationController
 
   def destroy
     favorite = Favorite.find_by(offer_id: params[:offer_id], user_id: current_user.id)
-    favorite.destroy
-    redirect_to offers_path
+    if favorite.destroy
+      flash[:success] = "お気に入りを解除しました。"
+      redirect_to offers_path
+    end
   end
 end

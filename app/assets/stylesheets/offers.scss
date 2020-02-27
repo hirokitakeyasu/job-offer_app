@@ -50,13 +50,14 @@
 
 .card-text{
     margin: 10px;
-    
-  p{
     overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-  }
+    width: 100%;
+    
+    p{
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
 }
 
 .index-btn{
@@ -168,6 +169,7 @@
 .show-body{
   border: 0.8px solid;
   border-radius: 5px;
+  margin-bottom: 20px;
   padding: 20px;
 }
 

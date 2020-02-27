@@ -42,13 +42,17 @@ class OffersController < ApplicationController
   end
   
   def update
-    @offer.update(offer_params)
-    redirect_to offers_my_offers_path
+    if @offer.update(offer_params)
+      flash[:success] = "投稿を更新しました。"
+      redirect_to offers_my_offers_path
+    end
   end
   
   def destroy
-    @offer.destroy
-    redirect_to offers_my_offers_path
+    if @offer.destroy
+      flash[:success] = "投稿を削除しました。"
+      redirect_to offers_my_offers_path
+    end
   end
   
   private

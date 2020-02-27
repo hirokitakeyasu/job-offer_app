@@ -1,3 +1,9 @@
+<% if flash[:success] %>
+  <div class="alert alert-success">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+
 <div class="container">
   <h4 class="my_offers-Title">MY投稿</h4>
   
@@ -6,22 +12,26 @@
         <div class="card" style="width: 25rem">
               <div class="card-body">
                   <div class="offer-title">
-                    <h3><%= offer.title %></h3>
+                    <h5><%= offer.title %></h5>
                   </div>
                   <% offer.tags.each do |tag| %>
                       <span class="badge badge-success"><%= tag.name %></span>
                   <% end %>
-                  <div class="employer-name">
-                    <h5><%= offer.name %></h5>
+                  <div class="name-image">
+                    <div class="employer-name">
+                      <h5><%= offer.name %></h5>
+                    </div>
+                    <% if offer.image.attached? %>
+                      <%= image_tag(offer.image, width:100, height:100) %>
+                    <% end %>
                   </div>
-                  <% if offer.image.attached? %>
-                    <%= image_tag(offer.image, width:50, height:50) %>
-                  <% end %>
                   <div class="card-text">
-                    <p><%= simple_format(offer.body) %></p>
+                    <p><%= offer.body %></p>
                   </div>
-                    <%= link_to '編集', edit_offer_path(offer.id), class: "btn btn-success" %>
+                   <div class="index-btn">
+                    <%= link_to '編集する', edit_offer_path(offer.id), class: "btn btn-success" %>
                     <%= link_to '削除', offer_path(offer.id), method: :delete, class: "btn btn-success" %>
+                   </div>
               </div>
         </div>
       <% end %>
