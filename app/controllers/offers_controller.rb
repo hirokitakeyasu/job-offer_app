@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class OffersController < ApplicationController
   before_action :target_offer, only: %i[show edit update destroy]
 
