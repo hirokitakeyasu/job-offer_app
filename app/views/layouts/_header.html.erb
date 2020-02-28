@@ -1,5 +1,8 @@
 <nav class="navbar navbar-expand-lg bg-success">
     <%= link_to 'ジョブズ.com', root_path, class: "navar-brand" %>
+    <% if user_signed_in? %>
+        <p class="username"><%= current_user.name %>さん、こんにちは</p>
+    <% end %>
     
     <div class="collapse navbar-collapse nav justify-content-end navbar-expand-sm" id="navbarSupportedContent">
         <ul class="nav nav-pills">
