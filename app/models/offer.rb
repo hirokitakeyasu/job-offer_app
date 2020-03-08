@@ -28,9 +28,9 @@ class Offer < ApplicationRecord
 
   default_scope -> { order(created_at: :desc) }
 
-  scope :with_keywords, lambda { |keywords|
+  scope :with_keywords, -> keywords {
     if keywords.present?
-      columns = [:title]
+      columns = [:name, :title]
       where(keywords.split(/[[:space:]]/).reject(&:empty?).map do |keyword|
         columns.map { |a| arel_table[a].matches("%#{keyword}%") }.inject(:or)
       end.inject(:and))

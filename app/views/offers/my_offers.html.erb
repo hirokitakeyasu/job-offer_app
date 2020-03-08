@@ -29,7 +29,7 @@
                     <p><%= offer.body %></p>
                   </div>
                    <div class="index-btn">
-                    <%= link_to '編集する', edit_offer_path(offer.id), class: "btn btn-success" %>
+                    <%= link_to '編集する', edit_offer_path(offer.id), data: {"turbolinks" => false}, class: "btn btn-success" %>
                     <%= link_to '削除', offer_path(offer.id), method: :delete, class: "btn btn-success" %>
                    </div>
               </div>

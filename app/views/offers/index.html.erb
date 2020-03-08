@@ -56,7 +56,7 @@
                   <p><%= offer.body %></p>
                 </div>
                  <div class="index-btn">
-                  <%= link_to '詳細を見る', offer_path(offer.id), class: "btn btn-success index-btn" %>
+                  <%= link_to '詳細', offer_path(offer.id), class: "btn btn-success index-btn" %>
                   <% if user_signed_in? %>
                     <% if offer.favorited_by?(current_user) %>
                         <%=link_to 'お気に入り解除', offer_favorites_path(offer.id), method: :delete, class: "btn btn-success" %>
